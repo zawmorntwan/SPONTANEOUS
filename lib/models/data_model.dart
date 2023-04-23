@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../data/notifiers/manage_notifiers.dart';
@@ -28,6 +30,11 @@ class DataModel {
 
   void logData() {
     String current = fromMapToString(map: dataMapCurrent);
+    String internal = fromMapToString(map: dataMapInternal);
+    String externalData = fromMapToString(map: dataMapExternal);
+
     debugPrint('Current Data : $current');
+    log('Internal: $internal');
+    log('External: $externalData');
   }
 }
