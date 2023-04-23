@@ -1,12 +1,9 @@
-class DataModel {
-  final String activity;
-  final String type;
-  final int participants;
-  final String price;
-  final String link;
-  final String key;
-  final String accessibility;
+import 'package:flutter/material.dart';
 
+import '../data/notifiers/manage_notifiers.dart';
+import '../functions/utils.dart';
+
+class DataModel {
   DataModel({
     required this.activity,
     required this.type,
@@ -17,12 +14,20 @@ class DataModel {
     required this.accessibility,
   });
 
+  final String accessibility;
+  final String activity;
+  final String key;
+  final String link;
+  final int participants;
+  final String price;
+  final String type;
+
   Future<void> reset() async {
-    //Todo: set the data notifier setter
-    //await setDataNotifier();
+    await setDataNotifier();
   }
 
   void logData() {
-    //Todo set data log
+    String current = fromMapToString(map: dataMapCurrent);
+    debugPrint('Current Data : $current');
   }
 }

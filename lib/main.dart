@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'data/notifiers/notifiers.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -28,8 +29,10 @@ class _MyAppState extends State<MyApp> {
         .listen((ConnectivityResult result) {
       if (result == ConnectivityResult.none) {
         // no internet
+        isConnectedNotifier.value = false;
       } else {
         // internet
+        isConnectedNotifier.value = true;
       }
     });
   }

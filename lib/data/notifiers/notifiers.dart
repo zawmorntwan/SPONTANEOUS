@@ -13,3 +13,5 @@ ValueNotifier<DataModel> dataNotifier = ValueNotifier(
     accessibility: '0',
   ),
 );
+
+ValueNotifier<bool> isConnectedNotifier = ValueNotifier(false);
