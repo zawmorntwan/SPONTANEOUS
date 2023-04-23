@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'data/notifiers/notifiers.dart';
+import 'functions/init.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -52,7 +53,20 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         primarySwatch: Colors.teal,
       ),
-      home: const HomeScreen(),
+      home: FutureBuilder(
+        future: initApp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else {
+            return const HomeScreen();
+          }
+        },
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,10 +1,11 @@
 import '../data/dio.dart';
+import '../data/shared_pref.dart';
 import 'utils.dart';
 
 Future<Map<String, dynamic>> getInternalData() async {
-  //Todo: get data from shared pref
-  //Todo: set the map under
-  return {};
+  await sharedPref.getData();
+  Map<String, dynamic> map = sharedPref.data;
+  return map;
 }
 
 Future<Map<String, dynamic>> getExternalData() async {
@@ -15,5 +16,5 @@ Future<Map<String, dynamic>> getExternalData() async {
 }
 
 Future<void> saveNewInternalData({required String externalDataString}) async {
-  //Todo: shared pref save data from json string
+  sharedPref.saveInternalData(jsonString: externalDataString);
 }

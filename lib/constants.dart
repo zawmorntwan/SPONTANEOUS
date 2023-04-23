@@ -1,3 +1,6 @@
+const String keyInternalData = 'keyInternalData';
+const String jsonStringEmpty = '{}';
+
 const String kActivity = 'activity';
 const String kType = 'type';
 const String kParticipants = 'participants';
