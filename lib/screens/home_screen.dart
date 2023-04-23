@@ -22,10 +22,18 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: kDouble20),
-            Icon(
-              Icons.wifi,
-              size: 200,
-              color: Colors.teal,
+            ValueListenableBuilder(
+              valueListenable: isConnectedNotifier,
+              builder:
+                  (BuildContext context, dynamic isConnected, Widget? child) {
+                return Icon(
+                  isConnected
+                      ? Icons.wifi
+                      : Icons.wifi_off,
+                  size: 200,
+                  color: isConnected ? Colors.teal : Colors.black,
+                );
+              },
             ),
             ValueListenableBuilder(
               valueListenable: dataNotifier,
